@@ -15,7 +15,7 @@ import static java.lang.annotation.RetentionPolicy.SOURCE;
 
 @Retention(SOURCE)
 @Target(TYPE)
-@GroovyASTTransformationClass(classes = MessageAdderASTTransformation.class)
+@GroovyASTTransformationClass(classes = MessageAdderGroovyASTTransformation.class)
 public @interface Messenger {
     boolean shout() default false;
 }
