@@ -23,6 +23,6 @@ public class MessageAdderGroovyASTTransformation extends AbstractASTTransformati
         annotatedClass.addMethod("message",
                 ACC_PUBLIC, VOID_TYPE, [new Parameter(STRING_TYPE, "message")] as Parameter[],
                 ClassNode.EMPTY_ARRAY, new ExpressionStatement(macro {
-                    println ($v {shout } ? $v { macro { message.toUpperCase() }; } : message) } as Expression))
+                    println ($v {shout } ?  message.toUpperCase() : message) } as Expression))
     }
 }
