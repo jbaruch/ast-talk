@@ -23,7 +23,7 @@ class ASTTransformationsTests {
     }
 
     @Test
-    void 'message method with shout param should exist'(){
+    void 'message method should exist'(){
         assertScript '''
         import org.jugru.jpoint.Messenger
 
