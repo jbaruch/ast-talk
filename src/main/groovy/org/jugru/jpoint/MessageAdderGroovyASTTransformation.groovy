@@ -1,9 +1,11 @@
 package org.jugru.jpoint
 
-import org.codehaus.groovy.ast.*
+import org.codehaus.groovy.ast.ASTNode
+import org.codehaus.groovy.ast.AnnotationNode
+import org.codehaus.groovy.ast.ClassNode
+import org.codehaus.groovy.ast.Parameter
 import org.codehaus.groovy.ast.expr.ConstantExpression
-import org.codehaus.groovy.ast.expr.Expression
-import org.codehaus.groovy.ast.stmt.ExpressionStatement
+import org.codehaus.groovy.ast.stmt.Statement
 import org.codehaus.groovy.control.SourceUnit
 import org.codehaus.groovy.transform.AbstractASTTransformation
 import org.codehaus.groovy.transform.GroovyASTTransformation
@@ -22,7 +24,9 @@ public class MessageAdderGroovyASTTransformation extends AbstractASTTransformati
 
         annotatedClass.addMethod("message",
                 ACC_PUBLIC, VOID_TYPE, [new Parameter(STRING_TYPE, "message")] as Parameter[],
-                ClassNode.EMPTY_ARRAY, new ExpressionStatement(macro {
-                    println ($v {shout } ?  message.toUpperCase() : message) } as Expression))
+                ClassNode.EMPTY_ARRAY, macro(true) {
+            println $v{shout} ? message.toUpperCase() : message
+        } as Statement)
     }
 }
+
