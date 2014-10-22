@@ -1,0 +1,8 @@
+# Created by .gitignore support plugin (hsz.mobi)
+.gradle
+build/
+.idea
+*.iml
+
+# Ignore Gradle GUI config
+gradle-app.setting
