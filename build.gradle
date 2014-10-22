@@ -1,0 +1,18 @@
+apply plugin: 'groovy'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile(group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.3.0-beta-2')
+    compile(group: 'ru.trylogic.groovy.macro', name: 'macro-groovy', version: '1.2.0') {
+        exclude(group: 'org.codehaus.groovy')
+    }
+    compile(group: 'ru.trylogic.groovy.macro', name: 'groovy-macro-methods', version: '0.1.1') {
+        exclude(group: 'org.codehaus.groovy')
+    }
+
+    testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
+    testCompile 'junit:junit:4.11'
+}
