@@ -1,4 +1,3 @@
-** SpringOne2GX 2014 **
 
 ** Getting practical with AST Transformations **
 ------------------------------------------------
