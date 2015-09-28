@@ -1,4 +1,4 @@
-package org.springone2gx.ast;
+package org.jetconf.ast;
 
 import org.codehaus.groovy.transform.GroovyASTTransformationClass;
 
@@ -9,11 +9,11 @@ import java.lang.annotation.Target;
 
 /**
  * @author jbaruch
- * @since 9/9/14
+ * @since 9/28/15
  */
-@Target(ElementType.TYPE)
 @Retention(RetentionPolicy.SOURCE)
-@GroovyASTTransformationClass(classes = MessageAdderGroovyAstTransformation.class)
+@Target(ElementType.TYPE)
+@GroovyASTTransformationClass(classes = MessageAdderAstTransformation.class)
 public @interface Messenger {
-    boolean shout() default false;
+    boolean shout();
 }

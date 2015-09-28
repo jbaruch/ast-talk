@@ -1,5 +1,6 @@
-package org.springone2gx.ast;
+package org.jetconf.ast;
 
+import groovyjarjarasm.asm.Opcodes;
 import org.codehaus.groovy.ast.ASTNode;
 import org.codehaus.groovy.ast.ClassHelper;
 import org.codehaus.groovy.ast.ClassNode;
@@ -11,19 +12,21 @@ import org.codehaus.groovy.transform.GroovyASTTransformation;
 
 import java.util.List;
 
-@GroovyASTTransformation(phase = CompilePhase.CONVERSION)
-public class AuthorAdderAstTransformation extends AbstractASTTransformation {
-    @Override
-    public void visit(final ASTNode[] nodes, final SourceUnit source) {
-        List<ClassNode> classes = source.getAST().getClasses();
-        classes.forEach(node ->
-                        node.addField(
-                                "$AUTHOR",
-                                ACC_PUBLIC | ACC_STATIC | ACC_FINAL,
-                                ClassHelper.STRING_TYPE,
-                                new ConstantExpression("jbaruch")
-                        )
-        );
+/**
+ * @author jbaruch
+ * @since 9/28/15
+ */
 
+@GroovyASTTransformation(phase = CompilePhase.CONVERSION)
+public class AuthorAdderAstTransformation extends AbstractASTTransformation{
+    @Override
+    public void visit(ASTNode[] nodes, SourceUnit source) {
+        List<ClassNode> classes = source.getAST().getClasses();
+        classes.forEach(classNode ->
+            classNode.addField("$AUTHOR",
+                    ACC_PUBLIC | Opcodes.ACC_STATIC | ACC_FINAL,
+                    ClassHelper.STRING_TYPE,
+                    new ConstantExpression("jbaruch"))
+        );
     }
 }

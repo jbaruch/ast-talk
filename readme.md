@@ -6,37 +6,35 @@
      - Getter and setter example getters/setters
  - How?
     - Abstract Syntax Tree
+        - Oxford comma
         - Assert
             - AST Browser
  - Adding author field
      - Global transformations vs. local transformations and more!
      - Testing transformations
-        - org.springone2gx.ast.AstTransformationsTests
+        - org.jetconf.ast.AstTransformationsTests
      - Writing global transformation
-        - org.springone2gx.ast.AuthorAdderAstTransformation
+        - org.jetconf.ast.AuthorAdderAstTransformation
         - Compiler phases
         - META-INF\services\org.codehaus.groovy.transform.ASTTransformation
  - Adding message method
     - Writing local transformations
-        - Annotation org.springone2gx.ast.Messenger
-        - org.springone2gx.ast.MessageAdderAstTransformation
+        - Annotation org.jetconf.ast.Messenger
+        - org.jetconf.ast.MessageAdderAstTransformation
             - Achievement unlocked: [x] Hell of AST!
  - Adding main method
     - Another local transformation
-        - Annotation org.springone2gx.ast.Main
-        - org.springone2gx.ast.MainAdderAstTransformation
+        - Annotation org.jetconf.ast.Main
+        - org.jetconf.ast.MainAdderAstTransformation
         - Writing defensive code
               - Achievement unlocked: [x] Compiler emits your messages!
 - AST for humans
     - Less hell - Using GeneralUtils
         - Simplifying MessageAdder with GeneralUtils
     - Even less hell (Hello, Groovy!)
-        - org.springone2gx.ast.AuthorAdderGroovyAstTransformation
+        - org.jetconf.ast.AuthorAdderGroovyAstTransformation
     - Almost no hell (More Groovy - Macro extensions!)
-        - org.springone2gx.ast.MessageAdderGroovyAstTransformation
-    - New AST transformation type! @Macro methods:
-        - org.springone2gx.ast.SafeAdderMacroExtension
-            - META-INF\services\org.codehaus.groovy.runtime.ExtensionModule
+        - org.jetconf.ast.MessageAdderGroovyAstTransformation
 - Performant AST
-    - Welcome back to Java!
+    - Welcome back to Java? Not so fast!
  - Questions from survivors

@@ -1,4 +1,4 @@
-package org.springone2gx.ast;
+package org.jetconf.ast;
 
 import org.codehaus.groovy.transform.GroovyASTTransformationClass;
 
@@ -9,11 +9,10 @@ import java.lang.annotation.Target;
 
 /**
  * @author jbaruch
- * @since 9/9/14
+ * @since 9/28/15
  */
-@Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
+@Retention(RetentionPolicy.SOURCE)
 @GroovyASTTransformationClass(classes = MainAdderAstTransformation.class)
 public @interface Main {
-
 }
