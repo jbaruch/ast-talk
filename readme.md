@@ -1,5 +1,11 @@
-** Getting practical with AST Transformations **
-------------------------------------------------
+
+
+# Getting practical with AST Transformations
+
+## Baruch Sadogursky, Dev Advocate, JFrog
+## @jbaruch
+
+![Devoxx BG](http://devoxxbelgium.s3-eu-west-1.amazonaws.com/wp-content/uploads/2015/06/08154520/Devoxx2015Thema.jpg)
 
  - Why?
      - Getter and setter example getters/setters: org.devoxx.Person
