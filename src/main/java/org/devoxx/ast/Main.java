@@ -1,4 +1,4 @@
-package org.jetconf.ast;
+package org.devoxx.ast;
 
 import org.codehaus.groovy.transform.GroovyASTTransformationClass;
 
@@ -9,11 +9,10 @@ import java.lang.annotation.Target;
 
 /**
  * @author jbaruch
- * @since 9/28/15
+ * @since 11/9/15
  */
 @Retention(RetentionPolicy.SOURCE)
-@Target(ElementType.TYPE)
-@GroovyASTTransformationClass(classes = MessageAdderAstTransformation.class)
-public @interface Messenger {
-    boolean shout();
+@Target(ElementType.METHOD)
+@GroovyASTTransformationClass(classes = MainAdderAstTransformation.class)
+public @interface Main {
 }

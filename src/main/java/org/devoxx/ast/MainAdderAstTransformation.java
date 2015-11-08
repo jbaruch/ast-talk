@@ -1,4 +1,4 @@
-package org.jetconf.ast;
+package org.devoxx.ast;
 
 import org.codehaus.groovy.ast.*;
 import org.codehaus.groovy.ast.expr.ArgumentListExpression;
@@ -19,18 +19,18 @@ import org.codehaus.groovy.transform.GroovyASTTransformationClass;
 public class MainAdderAstTransformation extends AbstractASTTransformation {
     @Override
     public void visit(ASTNode[] nodes, SourceUnit source) {
-        super.init(nodes, source);
+        init(nodes, source);
         MethodNode annotatedMethod = (MethodNode) nodes[1];
         ClassNode declaringClass = annotatedMethod.getDeclaringClass();
 
         Parameter[] emptyArrayParams = {new Parameter(ClassHelper.STRING_TYPE.makeArray(), "args")};
 
-        if(declaringClass.hasMethod("main", emptyArrayParams)) {
-            addError("The class already contains main method", declaringClass.getMethod("main", emptyArrayParams));
-        }
-
         ConstructorCallExpression constructorCall =
                 new ConstructorCallExpression(declaringClass, ArgumentListExpression.EMPTY_ARGUMENTS);
+
+        if (declaringClass.hasMethod("main", emptyArrayParams)) {
+            addError("Are you out of your mind? You already have main, stupid!", declaringClass.getMethod("main", emptyArrayParams));
+        }
 
         ExpressionStatement code = new ExpressionStatement(new MethodCallExpression(constructorCall,
                 annotatedMethod.getName(), MethodCallExpression.NO_ARGUMENTS));

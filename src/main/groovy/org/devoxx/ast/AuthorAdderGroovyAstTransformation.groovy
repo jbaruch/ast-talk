@@ -1,5 +1,6 @@
-package org.jetconf.ast
+package org.devoxx.ast
 
+import groovy.transform.CompileStatic
 import org.codehaus.groovy.ast.ASTNode
 import org.codehaus.groovy.ast.FieldNode
 import org.codehaus.groovy.ast.builder.AstBuilder
@@ -12,9 +13,9 @@ import org.codehaus.groovy.transform.GroovyASTTransformation
  * @author jbaruch
  * @since 9/28/15
  */
-
 @GroovyASTTransformation(phase = CompilePhase.SEMANTIC_ANALYSIS)
-class AuthorAdderGroovyAstTransformation extends AbstractASTTransformation{
+@CompileStatic
+class AuthorAdderGroovyAstTransformation extends AbstractASTTransformation {
     @Override
     void visit(ASTNode[] nodes, SourceUnit source) {
         source.AST.classes.each { node ->

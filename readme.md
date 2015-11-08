@@ -1,9 +1,8 @@
-
 ** Getting practical with AST Transformations **
 ------------------------------------------------
 
  - Why?
-     - Getter and setter example getters/setters
+     - Getter and setter example getters/setters: org.devoxx.Person
  - How?
     - Abstract Syntax Tree
         - Oxford comma
@@ -12,29 +11,27 @@
  - Adding author field
      - Global transformations vs. local transformations and more!
      - Testing transformations
-        - org.jetconf.ast.AstTransformationsTests
+        - org.devoxx.ast.AstTransformationsTests
      - Writing global transformation
-        - org.jetconf.ast.AuthorAdderAstTransformation
+        - org.devoxx.ast.AuthorAdderAstTransformation
         - Compiler phases
         - META-INF\services\org.codehaus.groovy.transform.ASTTransformation
  - Adding message method
     - Writing local transformations
-        - Annotation org.jetconf.ast.Messenger
-        - org.jetconf.ast.MessageAdderAstTransformation
+        - Annotation org.devoxx.ast.Messenger
+        - org.devoxx.ast.MessageAdderAstTransformation
             - Achievement unlocked: [x] Hell of AST!
  - Adding main method
     - Another local transformation
-        - Annotation org.jetconf.ast.Main
-        - org.jetconf.ast.MainAdderAstTransformation
+        - Annotation org.devoxx.ast.Main
+        - MainAdderAstTransformation
         - Writing defensive code
               - Achievement unlocked: [x] Compiler emits your messages!
 - AST for humans
     - Less hell - Using GeneralUtils
         - Simplifying MessageAdder with GeneralUtils
     - Even less hell (Hello, Groovy!)
-        - org.jetconf.ast.AuthorAdderGroovyAstTransformation
-    - Almost no hell (More Groovy - Macro extensions!)
-        - org.jetconf.ast.MessageAdderGroovyAstTransformation
+        - org.devoxx.ast.AuthorAdderGroovyAstTransformation
 - Performant AST
-    - Welcome back to Java? Not so fast!
+    - Welcome back to Java? Not so fast (Cause Groovy is fast)!
  - Questions from survivors

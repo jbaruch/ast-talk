@@ -1,4 +1,4 @@
-package org.jetconf.ast;
+package org.devoxx.ast;
 
 import groovyjarjarasm.asm.Opcodes;
 import org.codehaus.groovy.ast.ASTNode;
@@ -18,15 +18,16 @@ import java.util.List;
  */
 
 @GroovyASTTransformation(phase = CompilePhase.CONVERSION)
-public class AuthorAdderAstTransformation extends AbstractASTTransformation{
+public class AuthorAdderAstTransformation extends AbstractASTTransformation {
     @Override
     public void visit(ASTNode[] nodes, SourceUnit source) {
         List<ClassNode> classes = source.getAST().getClasses();
         classes.forEach(classNode ->
-            classNode.addField("$AUTHOR",
-                    ACC_PUBLIC | Opcodes.ACC_STATIC | ACC_FINAL,
-                    ClassHelper.STRING_TYPE,
-                    new ConstantExpression("jbaruch"))
+                classNode.addField("$AUTHOR",
+                        ACC_PUBLIC | ACC_STATIC | ACC_FINAL,
+                        ClassHelper.STRING_TYPE,
+                        new ConstantExpression("jbaruch"))
+
         );
     }
 }
